@@ -27,6 +27,9 @@
 /* Left side (icons / illustration area) */
 .left-side {
   flex: 1;
+  background-repeat: no-repeat;
+  background-position: 100% center;  
+  background-size: 70%; 
 }
 
 /* Right side (login form area) */
@@ -122,4 +125,28 @@
 .login-btn:hover,
 .register-btn:hover {
   background-color: #2346b8;
+}
+/* Container for the full registration form */
+.register-container {
+  background-color: white;
+  width: 800px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* This creates the space between the boxes */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
+  gap: 35px; /* Adds space between boxes */
+  margin-bottom: 20px;
+}
+
+/* Specific layout for the middle section */
+.form-row-wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Student ID (2) is wider than other fields (1) */
+  gap: 35px;
+  margin-bottom: 20px;
 }

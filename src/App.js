@@ -1,50 +1,44 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header.jsx';
+import LoginForm from './components/LoginForm.jsx';
+import RegisterForm from './components/RegisterForm.jsx';
+import Layout from './common/Layout.jsx';
+import studentIcons from './assets/icon.png'; 
+
+const AppRoutes = () => {
+  const navigate = useNavigate();
+
+  return (
+    <Routes>
+      <Route path="/" element={
+        <>
+          <Header title="Student's Performance Tracker" />
+          <Layout leftImage={studentIcons} showImage={true}>
+            <LoginForm onRegister={() => navigate('/register')} />
+          </Layout>
+        </>
+      } />
+      <Route path="/register" element={
+        <>
+          <Header title="Register to ClassIQ" />
+          <Layout showImage={false}>
+            <RegisterForm onBackToLogin={() => navigate('/')} />
+          </Layout>
+        </>
+      } />
+    </Routes>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-  
-      <header className="app-header">
-        <h1>Student's Performance Tracker</h1>
-      </header>
-
-  
-      <div className="main-content">
-        <div className="left-side">
-   
-        </div>
-
-        <div className="right-side">
-          <div className="login-container">
-            <h2>Login to your Account</h2>
-            <form>
-              <div className="form-group">
-                <label htmlFor="idNumber">ID Number</label>
-                <input type="text" id="idNumber" placeholder="Enter your ID number" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" />
-              </div>
-
-              <div className="form-options">
-                <label>
-                  <input type="checkbox" /> Remember Me
-                </label>
-                <button type="button" className="forgot-btn">Forgot Password?</button>
-              </div>
-
-              <div className="form-buttons">
-                <button type="submit" className="login-btn">LOGIN</button>
-                <button type="button" className="register-btn">REGISTER</button>
-              </div>
-            </form>
-          </div>
-        </div>
+    <Router>
+      <div className="App">
+        <AppRoutes />
       </div>
-    </div>
+    </Router>
   );
 }
 
