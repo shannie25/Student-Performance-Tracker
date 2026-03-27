@@ -1,3 +1,7 @@
+# ClassIQ Student Performance Tracker
+
+ClassIQ Student Performance Tracker is a role-based academic management system designed to monitor and manage student grades efficiently. It provides secure login access for students and teachers, ensuring different permission levels for each user type. Teachers can add and update grades across various subjects, while students can view their academic performance and feedback in real time. The system also allows the generation of printable grade reports or summaries. Additionally, an admin panel enables management of student and teacher accounts, as well as course and grade data, ensuring organized and centralized academic record handling.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
