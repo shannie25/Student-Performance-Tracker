@@ -1,43 +1,27 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import './App.css';
-import Header from './components/Header';
-import Layout from './components/Layout';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
 
 import Dashboard from './pages/Dashboard';
 import AddGrades from './pages/admin/AddGrades';
 import ManageUsers from './pages/admin/ManageUsers';
 import GenerateReport from './pages/shared/GenerateReport';
+import StudentLogin from './pages/StudentLogin';
+import AdminLogin from './pages/AdminLogin';
+import TeacherLogin from './pages/TeacherLogin';
 import Sidebar from './components/Sidebar';
-import studentIcons from './assets/icon.png';
 
 const AppRoutes = () => {
-  const navigate = useNavigate();
   const { user } = useAuth();
 
-  // Show login/register pages if not authenticated
+  // Show login pages if not authenticated
   if (!user) {
     return (
       <Routes>
-        <Route path="/" element={
-          <>
-            <Header title="Student's Performance Tracker" />
-            <Layout leftImage={studentIcons} showImage={true}>
-              <LoginForm onRegister={() => navigate('/register')} />
-            </Layout>
-          </>
-        } />
-        <Route path="/register" element={
-          <>
-            <Header title="Register to ClassIQ" />
-            <Layout showImage={false}>
-              <RegisterForm onBackToLogin={() => navigate('/')} />
-            </Layout>
-          </>
-        } />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/student" element={<StudentLogin />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/teacher" element={<TeacherLogin />} />
+        <Route path="*" element={<Navigate to="/student" />} />
       </Routes>
     );
   }
