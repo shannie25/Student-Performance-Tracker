@@ -9,18 +9,22 @@ import GenerateReport from './pages/shared/GenerateReport';
 import StudentLogin from './pages/StudentLogin';
 import AdminLogin from './pages/AdminLogin';
 import TeacherLogin from './pages/TeacherLogin';
+import RegisterForm from './components/RegisterForm';
 import Sidebar from './components/Sidebar';
 
 const AppRoutes = () => {
   const { user } = useAuth();
 
   // Show login pages if not authenticated
+  const navigate = useNavigate();
+
   if (!user) {
     return (
       <Routes>
         <Route path="/student" element={<StudentLogin />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/teacher" element={<TeacherLogin />} />
+        <Route path="/register" element={<RegisterForm onBackToLogin={() => navigate('/student')} />} />
         <Route path="*" element={<Navigate to="/student" />} />
       </Routes>
     );

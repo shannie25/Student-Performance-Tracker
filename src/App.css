@@ -214,12 +214,37 @@
 }
 
 /* Container for the full registration form */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #dbe5ff;
+}
+
 .register-container {
   background-color: white;
   width: 800px;
-  padding: 40px;
+  max-width: 100%;
+  padding: 0;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.register-header {
+  background-color: #305cde;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.register-container form {
+  padding: 40px 30px 30px;
 }
 
 .register-container h2 {
@@ -242,6 +267,14 @@
   grid-template-columns: 1fr 1fr; 
   gap: 35px;
   margin-bottom: 20px;
+}
+
+.register-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .counter {

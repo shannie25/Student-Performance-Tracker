@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
@@ -9,6 +10,7 @@ const StudentLogin = () => {
   const [idNumber, setIdNumber] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -73,7 +75,24 @@ const StudentLogin = () => {
                   )}
                 </div>
               </div>
+              <div style={styles.formOptions} className="form-options">
+                <label style={styles.rememberLabel}>
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="remember-checkbox"
+                  />
+                  Remember Me
+                </label>
+                <button type="button" className="forgot-btn" onClick={() => alert('Redirecting to password recovery...')}>
+                  Forgot Password?
+                </button>
+              </div>
               <button type="submit" style={styles.button}>Log In</button>
+              <div style={styles.signUpText}>
+                Don't have an account? <Link to="/register" style={styles.signUpLink}>Sign up</Link>
+              </div>
             </form>
           </div>
         </div>
@@ -95,6 +114,12 @@ const styles = {
   passwordWrapper: { position: 'relative', width: '100%' },
   passwordInput: { width: '100%', padding: '14px 16px', paddingRight: '45px', backgroundColor: '#e5e7eb', border: 'none', borderRadius: '12px', fontSize: '16px', outline: 'none', boxSizing: 'border-box' },
   eyeIconContainer: { position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', display: 'flex' },
+  formOptions: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' },
+  rememberLabel: { display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', cursor: 'pointer' },
+  rememberCheckbox: { width: '16px', height: '16px', accentColor: '#2563eb', backgroundColor: 'white', border: '1px solid #ffffff', borderRadius: '4px' },
+  forgotPasswordButton: { background: 'transparent', border: 'none', color: '#2563eb', cursor: 'pointer', fontSize: '14px', fontWeight: '600', padding: '0' },
+  signUpText: { display: 'flex', justifyContent: 'center', width: '100%', marginTop: '16px', color: '#374151', fontSize: '14px' },
+  signUpLink: { color: '#2563eb', textDecoration: 'none', fontWeight: '600' },
   button: { padding: '14px', borderRadius: '12px', border: 'none', background: '#2563eb', color: 'white', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px' },
   errorBox: { color: '#b91c1c', backgroundColor: '#fef2f2', padding: '10px', borderRadius: '8px', textAlign: 'center', marginBottom: '15px', border: '1px solid #fecaca', fontSize: '14px' }
 };

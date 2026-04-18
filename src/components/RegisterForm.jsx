@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './Header';
 
 const RegisterForm = ({ onBackToLogin }) => {
   const [formData, setFormData] = useState({
@@ -56,10 +57,11 @@ const RegisterForm = ({ onBackToLogin }) => {
   };
 
   return (
-    <div className="register-container">
-      <h2 style={{ textAlign: 'center', marginBottom: '25px' }}>Create Your Account</h2>
+    <div className="register-page">
+      <div className="register-container">
+        <div className="register-header">Register to ClassIQ</div>
 
-      {error && (
+        {error && (
         <div style={{
           color: '#dc2626',
           backgroundColor: '#fee2e2',
@@ -168,11 +170,11 @@ const RegisterForm = ({ onBackToLogin }) => {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <div className="register-actions">
           <button
             type="submit"
             className="login-btn"
-            style={{ width: '48%', marginRight: '10px' }}
+            style={{ minWidth: '180px' }}
             disabled={loading}
           >
             {loading ? 'CREATING...' : 'CREATE ACCOUNT'}
@@ -181,13 +183,14 @@ const RegisterForm = ({ onBackToLogin }) => {
             type="button"
             className="forgot-btn"
             onClick={onBackToLogin}
-            style={{ display: 'inline-block', marginLeft: '10px', padding: '10px 20px' }}
+            style={{ minWidth: '140px', padding: '10px 20px' }}
             disabled={loading}
           >
             Back to Login
           </button>
         </div>
       </form>
+      </div>
     </div>
   );
 };

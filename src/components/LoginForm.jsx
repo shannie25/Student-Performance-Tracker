@@ -80,13 +80,16 @@ const LoginForm = ({ onRegister }) => {
           />
         </div>
 
+        <div className="forgot-password">
+          <button type="button" className="forgot-btn" onClick={handleForgotPassword}>
+            Forgot Password?
+          </button>
+        </div>
+
         <div className="form-options">
           <label>
             <input type="checkbox" /> Remember Me
           </label>
-          <button type="button" className="forgot-btn" onClick={handleForgotPassword}>
-            Forgot Password?
-          </button>
         </div>
 
         <div className="form-buttons">
