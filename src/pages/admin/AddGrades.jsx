@@ -9,11 +9,15 @@ const AddGrades = () => {
 
   const students = users.filter(u => u.role === 'student');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addGrade({ ...formData, studentId: parseInt(formData.studentId), score: parseInt(formData.score) });
-    alert("Grade successfully saved!");
-    navigate('/dashboard');
+    try {
+      await addGrade({ ...formData, studentId: formData.studentId, score: parseInt(formData.score, 10) });
+      alert("Grade successfully saved!");
+      navigate('/dashboard');
+    } catch (_error) {
+      alert("Failed to save grade. Please check the server and database connection.");
+    }
   };
 
   return (

@@ -13,9 +13,9 @@ const StudentLogin = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!login(idNumber, password, 'student')) {
+    if (!(await login(idNumber, password, 'student'))) {
       setError('Invalid ID Number or Password');
     }
   };

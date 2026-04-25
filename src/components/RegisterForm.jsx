@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import { useAuth } from '../context/AuthContext';
 
 const RegisterForm = ({ onBackToLogin }) => {
+  const { register } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     middleName: '',
@@ -41,19 +43,17 @@ const RegisterForm = ({ onBackToLogin }) => {
     setLoading(true);
     
     try {
-      // Placeholder for registration logic
-      // In a real app, this would call your backend API
-      console.log('Registration data:', formData);
+      await register(formData);
       setSuccess('Account created successfully! Redirecting to login...');
       
       setTimeout(() => {
         onBackToLogin();
       }, 2000);
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError(err.message || 'Registration failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
-    
-    setLoading(false);
   };
 
   return (

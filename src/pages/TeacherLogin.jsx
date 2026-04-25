@@ -11,9 +11,9 @@ const TeacherLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!login(email, password, 'teacher')) {
+    if (!(await login(email, password, 'teacher'))) {
       setError('Invalid Email Address or Password');
     }
   };

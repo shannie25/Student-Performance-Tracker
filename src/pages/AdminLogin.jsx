@@ -11,9 +11,9 @@ const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!login(email, password, 'admin')) {
+    if (!(await login(email, password, 'admin'))) {
       setError('Invalid Email Address or Password');
     }
   };

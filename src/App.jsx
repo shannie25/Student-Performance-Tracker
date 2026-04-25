@@ -13,10 +13,17 @@ import RegisterForm from './components/RegisterForm';
 import Sidebar from './components/Sidebar';
 
 const AppRoutes = () => {
-  const { user } = useAuth();
+  const { user, loading, error } = useAuth();
 
-  // Show login pages if not authenticated
   const navigate = useNavigate();
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', color: '#1f2937' }}>
+        Loading data from the server...
+      </div>
+    );
+  }
 
   if (!user) {
     return (
@@ -25,12 +32,15 @@ const AppRoutes = () => {
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/teacher" element={<TeacherLogin />} />
         <Route path="/register" element={<RegisterForm onBackToLogin={() => navigate('/student')} />} />
+        <Route
+          path="/"
+          element={error ? <div style={{ padding: '32px', color: '#b91c1c' }}>{error}</div> : <Navigate to="/student" />}
+        />
         <Route path="*" element={<Navigate to="/student" />} />
       </Routes>
     );
   }
 
-  // Show dashboard and admin pages if authenticated
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar />
