@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import Topbar from '../components/Topbar';
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
   const { user, grades, users } = useAuth();

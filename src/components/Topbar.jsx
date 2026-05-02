@@ -1,24 +1,26 @@
 import React from "react";
 
 const Topbar = () => {
-   return (
-   <div style={styles.Topbar}>
-   
-   <div style={styles.searchContainer}>
-     <input type = "text" 
-      placeholder= "Search"
-      style = {styles.searchInput}
-    />
-   </div>
+  return (
+    <div style={styles.topbar}>
+      <div style={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search academic records..."
+          style={styles.searchInput}
+        />
+      </div>
 
-    <div style={tyles.iconContainer}>
+      <div style={styles.iconContainer}>
         <span style={styles.icon}>🔔</span>
         <span style={styles.icon}>📅</span>
         <span style={styles.icon}>📥</span>
+      </div>
     </div>
-</div>
-   );
-};const styles = {
+  );
+};
+
+const styles = {
   topbar: {
     height: "70px",
     backgroundColor: "#f3f4f6",
@@ -53,3 +55,6 @@ const Topbar = () => {
     transition: "0.2s"
   }
 };
+
+export default Topbar;
+
