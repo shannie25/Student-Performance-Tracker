@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import AddGrades from './pages/admin/AddGrades';
 import ManageUsers from './pages/admin/ManageUsers';
 import GenerateReport from './pages/shared/GenerateReport';
+import Attendance from './pages/Attendance';
 import StudentLogin from './pages/StudentLogin';
 import AdminLogin from './pages/AdminLogin';
 import TeacherLogin from './pages/TeacherLogin';
@@ -48,6 +49,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-grades" element={user?.role !== 'student' ? <AddGrades /> : <Navigate to="/dashboard" />} />
+          <Route path="/attendance" element={<Attendance />} />
           <Route path="/manage-users" element={user?.role === 'admin' ? <ManageUsers /> : <Navigate to="/dashboard" />} />
           <Route path="/generate-report" element={<GenerateReport />} />
           <Route path="/" element={<Navigate to="/dashboard" />} />

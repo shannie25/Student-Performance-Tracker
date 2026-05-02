@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div style={styles.sidebar}>
       <div style={styles.header}>
-        <h2 style={styles.logo}>Tracker Pro</h2>
+        <h2 style={styles.logo}><ClassIQ></ClassIQ></h2>
         <p style={styles.roleText}>Role: {user?.role}</p>
       </div>
       
