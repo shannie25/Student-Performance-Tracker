@@ -80,7 +80,7 @@ INSERT INTO student_profile (student_id, grade_level, section) VALUES ('3001', 1
 
 INSERT INTO subjects (subject_name, teacher_id) VALUES
 ('Mathematics', '2001'),
-('Science',     '2001');
+('Science',     '2001');but
 
 INSERT INTO grades (student_id, subject_id, score, feedback) VALUES
 ('3001', 1, 85, 'Excellent work!'),
