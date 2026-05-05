@@ -12,6 +12,7 @@ import AdminLogin from './pages/AdminLogin';
 import TeacherLogin from './pages/TeacherLogin';
 import RegisterForm from './components/RegisterForm';
 import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 
 const AppRoutes = () => {
   const { user, loading, error } = useAuth();
@@ -43,9 +44,10 @@ const AppRoutes = () => {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
+    <div className="app-shell">
       <Sidebar />
-      <main style={{ flex: 1, backgroundColor: '#f0f2f5' }}>
+      <main className="app-main">
+        <Topbar />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-grades" element={user?.role !== 'student' ? <AddGrades /> : <Navigate to="/dashboard" />} />

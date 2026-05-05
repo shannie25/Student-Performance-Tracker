@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   const navItems = [
     { to: '/dashboard', label: 'Dashboard' },
-    { to: '/add-grades', label: 'Grades', visible: user?.role !== 'student' },
+    { to: '/add-grades', label: 'Grades' },
     { to: '/attendance', label: 'Attendance' },
     { to: '/generate-report', label: 'Reports' },
     { to: '/manage-users', label: 'Manage Users', visible: user?.role === 'admin' },
