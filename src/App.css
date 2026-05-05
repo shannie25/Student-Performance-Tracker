@@ -659,7 +659,23 @@
 }
 
 .sidebar-logout {
-  display: none;
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-logout:hover {
+  background: #be123c;
+  transform: translateY(-1px);
 }
 
 .topbar {
