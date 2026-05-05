@@ -34,7 +34,10 @@ const AppRoutes = () => {
         <Route path="/student" element={<StudentLogin />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/teacher" element={<TeacherLogin />} />
-        <Route path="/register" element={<RegisterForm onBackToLogin={() => navigate('/student')} />} />
+        <Route
+          path="/register"
+          element={<RegisterForm onBackToLogin={(role = 'student') => navigate(role === 'teacher' ? '/teacher' : '/student')} />}
+        />
         <Route
           path="/"
           element={error ? <div style={{ padding: '32px', color: '#b91c1c' }}>{error}</div> : <Navigate to="/student" />}

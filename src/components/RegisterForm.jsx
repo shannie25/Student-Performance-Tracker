@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import { useAuth } from '../context/AuthContext';
 
 const RegisterForm = ({ onBackToLogin }) => {
   const { register } = useAuth();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const registrationRole = params.get('role') === 'teacher' ? 'teacher' : 'student';
+  const idLabel = registrationRole === 'teacher' ? 'Teacher ID' : 'Student ID';
   const [formData, setFormData] = useState({
     firstName: '',
     middleName: '',
@@ -43,11 +48,11 @@ const RegisterForm = ({ onBackToLogin }) => {
     setLoading(true);
     
     try {
-      await register(formData);
+      await register({ ...formData, role: registrationRole });
       setSuccess('Account created successfully! Redirecting to login...');
       
       setTimeout(() => {
-        onBackToLogin();
+        onBackToLogin(registrationRole);
       }, 2000);
     } catch (err) {
       setError(err.message || 'Registration failed. Please try again.');
@@ -126,7 +131,7 @@ const RegisterForm = ({ onBackToLogin }) => {
         
         <div className="form-row-wide">
           <div className="form-group">
-            <label>Student ID</label>
+            <label>{idLabel}</label>
             <input
               type="text"
               name="studentId"
@@ -182,7 +187,7 @@ const RegisterForm = ({ onBackToLogin }) => {
           <button
             type="button"
             className="forgot-btn"
-            onClick={onBackToLogin}
+            onClick={() => onBackToLogin(registrationRole)}
             style={{ minWidth: '140px', padding: '10px 20px' }}
             disabled={loading}
           >

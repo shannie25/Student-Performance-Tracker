@@ -95,7 +95,7 @@ const StudentLogin = () => {
               </div>
               <button type="submit" style={styles.button}>Log In</button>
               <div style={styles.signUpText}>
-                Don't have an account? <Link to="/register" style={styles.signUpLink}>Sign up</Link>
+                Don't have an account? <Link to="/register?role=student" style={styles.signUpLink}>Sign up</Link>
               </div>
             </form>
           </div>

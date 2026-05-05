@@ -95,7 +95,8 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.post("/api/register", async (req, res) => {
-  const { studentId, email, firstName, middleName, lastName, password } = req.body;
+  const { studentId, email, firstName, middleName, lastName, password, role = "student" } = req.body;
+  const normalizedRole = role === "teacher" ? "teacher" : "student";
 
   if (!studentId || !email || !firstName || !lastName || !password) {
     return res.status(400).json({ message: "Missing required registration fields" });
@@ -114,15 +115,15 @@ app.post("/api/register", async (req, res) => {
     }
 
     await pool.query(
-      "INSERT INTO users (id, email, name, role, password) VALUES (?, ?, ?, 'student', ?)",
-      [studentId, email, fullName, password]
+      "INSERT INTO users (id, email, name, role, password) VALUES (?, ?, ?, ?, ?)",
+      [studentId, email, fullName, normalizedRole, password]
     );
 
     res.status(201).json({
       id: studentId,
       email,
       name: fullName,
-      role: "student",
+      role: normalizedRole,
     });
   } catch (error) {
     console.error("Registration failed:", error);
