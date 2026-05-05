@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import './App.css';
 
 import Dashboard from './pages/Dashboard';
+import StudentGrades from './pages/StudentGrades';
 import AddGrades from './pages/admin/AddGrades';
 import ManageUsers from './pages/admin/ManageUsers';
 import GenerateReport from './pages/shared/GenerateReport';
@@ -50,7 +51,7 @@ const AppRoutes = () => {
         <Topbar />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/add-grades" element={user?.role !== 'student' ? <AddGrades /> : <Navigate to="/dashboard" />} />
+          <Route path="/add-grades" element={user?.role === 'student' ? <StudentGrades /> : <AddGrades />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/manage-users" element={user?.role === 'admin' ? <ManageUsers /> : <Navigate to="/dashboard" />} />
           <Route path="/generate-report" element={<GenerateReport />} />

@@ -1,0 +1,401 @@
+.grades-page {
+  flex: 1;
+  min-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #e6ebf2;
+  padding: 24px 46px 42px;
+  text-align: left;
+}
+
+.grades-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.grades-toolbar h1 {
+  color: #050505;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  margin: 8px 0 0;
+}
+
+.grades-filters {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.grades-filters label {
+  position: relative;
+  display: block;
+}
+
+.grades-filters span {
+  position: absolute;
+  left: 16px;
+  top: -7px;
+  z-index: 1;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background: #f5f7fa;
+  color: #707780;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.grades-filters select {
+  min-width: 142px;
+  height: 44px;
+  border: 0;
+  border-radius: 9px;
+  background: #d6dce5;
+  color: #202124;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 13px 34px 8px 16px;
+  outline: none;
+}
+
+.grades-content-grid {
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) minmax(240px, 0.42fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.grades-main,
+.grades-side {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.grades-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 22px;
+}
+
+.grade-stat-card,
+.grades-table-card,
+.subject-detail-card {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.grade-stat-card {
+  min-height: 75px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+}
+
+.grade-stat-card h2 {
+  color: #7c828b;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  margin: 0 0 7px;
+}
+
+.grade-stat-card p {
+  color: #050505;
+  font-size: 31px;
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.grade-stat-card.status-card {
+  background: #2d2f33;
+}
+
+.grade-stat-card.status-card h2 {
+  color: #8c929d;
+}
+
+.grade-stat-card.status-card p {
+  color: #ffffff;
+  font-size: 21px;
+}
+
+.grades-table-card {
+  overflow: hidden;
+}
+
+.student-grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.student-grades-table th,
+.student-grades-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e8ebef;
+}
+
+.student-grades-table th {
+  color: #8b9098;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.student-grades-table td {
+  color: #050505;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.student-grades-table th:nth-child(1),
+.student-grades-table td:nth-child(1) {
+  width: 36%;
+}
+
+.student-grades-table th:nth-child(2),
+.student-grades-table td:nth-child(2) {
+  width: 15%;
+}
+
+.student-grades-table th:nth-child(3),
+.student-grades-table td:nth-child(3) {
+  width: 16%;
+}
+
+.student-grades-table td:nth-child(4) {
+  color: #7b8088;
+  font-weight: 600;
+}
+
+.student-grades-table td span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 20px;
+  border-radius: 999px;
+  background: #e6e8eb;
+  color: #050505;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.academic-journey h2 {
+  color: #050505;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 22px 0 12px;
+}
+
+.journey-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.journey-list article {
+  position: relative;
+  min-height: 56px;
+  box-sizing: border-box;
+  padding: 13px 72px 12px 18px;
+  border-radius: 8px;
+  background: #d3d9e2;
+}
+
+.journey-list small {
+  display: block;
+  color: #8b9098;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.journey-list strong {
+  display: block;
+  color: #050505;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.journey-list b {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #050505;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.subject-detail-card {
+  padding: 24px 20px;
+}
+
+.subject-detail-card h2 {
+  color: #050505;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 0 18px;
+}
+
+.activity-table {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.activity-table div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #666d76;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.activity-table div:first-child {
+  color: #858b94;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.activity-table strong {
+  color: #1957ff;
+  font-weight: 900;
+}
+
+.teacher-note {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 5px;
+  background: #e3e3e3;
+}
+
+.teacher-note h3 {
+  color: #050505;
+  font-size: 10px;
+  font-weight: 900;
+  margin: 0 0 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.teacher-note p {
+  color: #050505;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.grades-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.grades-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.grades-actions svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.download-report-btn {
+  background: #050505;
+  color: #ffffff;
+}
+
+.download-report-btn svg {
+  color: #ff3b30;
+}
+
+.print-report-btn {
+  background: #d3d9e2;
+  color: #050505;
+}
+
+.print-report-btn svg {
+  color: #138cff;
+}
+
+@media (max-width: 980px) {
+  .grades-page {
+    padding: 24px;
+  }
+
+  .grades-toolbar,
+  .grades-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grades-content-grid {
+    display: block;
+  }
+
+  .grades-side {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 720px) {
+  .grades-page {
+    min-height: auto;
+    padding: 20px 16px 32px;
+  }
+
+  .grades-toolbar {
+    flex-direction: column;
+  }
+
+  .grades-filters,
+  .grades-stats,
+  .journey-list {
+    grid-template-columns: 1fr;
+    display: grid;
+    width: 100%;
+  }
+
+  .grades-filters select {
+    width: 100%;
+  }
+
+  .student-grades-table {
+    min-width: 620px;
+  }
+
+  .grades-table-card {
+    overflow-x: auto;
+  }
+}
